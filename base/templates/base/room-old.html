@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="room">
+    <div class="room-container">
+
+    
+        <br>
+        <a href="{% url 'delete-room' room.id %}">delete the room</a>
+    
+        <br>
+        <h1>welcome to {{room.name}}!!</h1>
+        <code>hosted by {{room.host}}</code>
+
+        <p>{{room.description}}</p>
+        <hr>
+
+        <div class="comment-wrapper">
+            <div class="comments">
+                {% for room_message in room_messages %}
+                <div>
+                     
+                    <a href="{% url 'delete-message' room_message.id %}">delete </a>
+                    <br>
+                    {% endif %}
+                    <small>{{room_message.user}}  {{room_message.created|timesince}}</small>
+                    <p>{{room_message.body}}</p>
+                    <hr>
+                </div>
+                {% endfor %}
+
+            </div>
+            {% if request.user.is_authenticated %}
+            <div class="comment-form">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="body" placeholder="write your message here">
+                    <input type="submit" value="send">
+                </form>
+            
+            </div>
+            {% endif %}
+
+
+        </div>
+
+        
+    </div> 
+
+    <div class="room-participants">
+        <h3>
+            participants
+        </h3>
+        {% for user in participants %}
+                <div>
+                    
+                    <p>@{{user.username}}</p>
+                    <hr>
+                </div>
+                {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}

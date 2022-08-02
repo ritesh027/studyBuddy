@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<div>
+    <h3 class="logo">
+       {{user.username}}'s homepage
+    </h3>
+
+    <div class="homepage">
+
+        <div class="home-topics">
+           
+            {% include 'base/topic_template.html' %}
+
+        </div>
+
+        <div class="home-rooms">
+            <h4>{{room_count}} room available</h4>
+         
+            <br> <hr>
+            {% include 'base/feed_template.html' %}
+        </div>
+
+        <div class="home-activity" >
+
+            {% include 'base/activity_template.html' %}
+
+
+        </div>
+       
+
+    </div>
+</div>
+{% endblock %}

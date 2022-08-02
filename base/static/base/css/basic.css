@@ -1,0 +1,47 @@
+.logo{
+    color:brown
+}
+
+.homepage
+{
+    display:flex;
+    height:fit-content;
+}
+.home-topics{
+
+    position: relative;
+    width: 25vw;
+    
+    border-right: 2px  black;
+    border-style: groove;
+}
+.home-rooms{
+
+    position: relative;
+    width:50vw;
+    
+    margin-left: 1%;
+}
+.home-activity{
+    position: relative;
+    width: 25vw;
+
+}
+.room{
+    
+    display:flex;
+
+}
+.room-container{
+    position: relative;
+    width:70vw;
+    
+    border: 2px   black solid;
+    
+}
+.room-participants{
+    position: relative;
+    width: 30vw;
+    border-right: 2px black solid;
+
+}
